@@ -1,0 +1,60 @@
+<h1>Subject List: </h1>
+<p>Subjects: <span *ngFor = "let s of Subjects">{{s+", "}}</span>
+    <br/>
+    <span *ngIf = "ShowFaculty">{{FacultyName}}</span><br/>
+    <h2>Employee Details using *ngFor: </h2><br/>
+    
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Code</th>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>Annual Salary</th>
+                    <th>Date of Birth</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor ="let emp of employees">
+                    <td>{{emp.code}}</td>
+                    <td>{{emp.name | genderpipe:emp.gender}}</td>
+                    <td>{{emp.gender }}</td>
+                    <td>{{emp.annualSalary}}</td>
+                    <td>{{emp.dateOfBirth | date:"fullDate"}}</td>
+                    
+                </tr>
+                <tr *ngIf = "employees.length == 0 || !employees">
+                <td colspan="5" align="center">No Data Available</td>
+                </tr>
+            </tbody>
+        </table><br>
+        <h1>Displaying object array details using interpolation</h1>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Cost</th>
+                    <th>Category</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor ="let prod of Products">
+                    <td>{{prod.id}}</td>
+                    <td>{{prod.name | uppercase}}</td>
+                    <td>{{prod.cost}}</td>
+                    <td>{{prod.category}}</td>
+                    
+                </tr>
+                <!-- <tr *ngIf = "employees.length == 0 || !employees">
+                <td colspan="5" align="center">No Data Available</td>
+                </tr> -->
+            </tbody>
+        </table><br>
+        <button class="btn btn-success" (click)="myFunction()">Click Me</button>
+<button class="btn btn-success" (click)="deleteProduct(100)">Delete</button>
+<button class="btn btn-success" (click)="editProduct(100,'Note2')">Edit</button> 
+<button type="button" class="btn btn-warning">Warning</button>
+       
+    
